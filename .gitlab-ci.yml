@@ -1,5 +1,4 @@
 image: gitlab/dind
-# image: rocker/geospatial
 
 services:
   - docker:dind
@@ -11,7 +10,7 @@ variables:
   SHARED_PATH: /builds/shared/$CI_PROJECT_PATH
 
 build_image:
-  stage: install
+  stage: build
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - mkdir -p ${SHARED_PATH}
